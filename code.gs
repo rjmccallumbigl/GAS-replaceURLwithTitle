@@ -1,10 +1,12 @@
 function replaceUrlWithTitle() { 
   
+  //  TODO: capture and convert several URLs
+  
   var url = "https://developers.google.com/apps-script/reference/document/text#replacetextsearchpattern,-replacement" 
-//  var url = "https://vitals.lifehacker.com/a-major-hospital-algorithm-is-biased-against-black-pati-1839336816"
+  //  var url = "https://vitals.lifehacker.com/a-major-hospital-algorithm-is-biased-against-black-pati-1839336816"
   var pageSource = UrlFetchApp.fetch(url).getContentText();   
   var title = pageSource.split(/head/)[1].split(/<\/head/)[0].split(/<title>/)[1].split(/<\/title/)[0].replace(/<[^>]*(>|$)|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;/g, ' ');
-    
+  
   var document = DocumentApp.getActiveDocument(); 
   var body = document.getBody(); 
   
@@ -16,5 +18,5 @@ function replaceUrlWithTitle() {
   }
 }
 
-    //	https:/'developers.google.com/apps-script/reference/document/text#replacetextsearchpattern, - replacement 
-    //	https://stackoverflow.com/questions/21211804/google-apps-script-make-text-a-clIckable-url-using-replacetext 
+//	https:/'developers.google.com/apps-script/reference/document/text#replacetextsearchpattern, - replacement 
+//	https://stackoverflow.com/questions/21211804/google-apps-script-make-text-a-clIckable-url-using-replacetext 
